@@ -30,6 +30,73 @@ export const getUserById = (req, res) => {
   }
 
   res.json(user);
+};
+
+export const createUser = (req, res) => {
+
+  const { username, status } = req.body;
+
+  if (!username || !status) {
+    return res.status(400).json({
+      message: "username y status son requeridos"
+    });
+  }
+
+  const newUser = {
+    id: users.length + 1,
+    username,
+    status
+  };
+
+  users.push(newUser);
+
+  res.status(201).json({
+    message: "Usuario creado",
+    data: newUser
+  });
+
+};
+
+export const updateUser = (req, res) => {
+
+  const id = parseInt(req.params.id);
+  const { username, status } = req.body;
+
+  const user = users.find(u => u.id === id);
+
+  if (!user) {
+    return res.status(404).json({
+      message: "Usuario no encontrado"
+    });
+  }
+
+  user.username = username || user.username;
+  user.status = status || user.status;
+
+  res.json({
+    message: "Usuario actualizado",
+    data: user
+  });
+
+};
+
+export const deleteUser = (req, res) => {
+
+  const id = parseInt(req.params.id);
+
+  const index = users.findIndex(u => u.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({
+      message: "Usuario no encontrado"
+    });
+  }
+
+  users.splice(index, 1);
+
+  res.json({
+    message: "Usuario eliminado"
+  });
 
 };
 
@@ -41,9 +108,9 @@ export const getUsersPagination = (req, res) => {
   let orderBy = req.query.orderBy || "id";
   let orderDir = req.query.orderDir || "DESC";
 
-  const allowedLimits = [5, 10, 15, 20];
-  const allowedOrderBy = ["id", "username", "status"];
-  const allowedOrderDir = ["ASC", "DESC"];
+  const allowedLimits = [5,10,15,20];
+  const allowedOrderBy = ["id","username","status"];
+  const allowedOrderDir = ["ASC","DESC"];
 
   if (!allowedLimits.includes(limit)) {
     return res.status(400).json({
@@ -67,12 +134,12 @@ export const getUsersPagination = (req, res) => {
     user.username.toLowerCase().includes(search.toLowerCase())
   );
 
-  filtered.sort((a, b) => {
+  filtered.sort((a,b)=>{
 
-    if (orderDir === "ASC") {
-      return a[orderBy] > b[orderBy] ? 1 : -1;
-    } else {
-      return a[orderBy] < b[orderBy] ? 1 : -1;
+    if(orderDir === "ASC"){
+      return a[orderBy] > b[orderBy] ? 1 : -1
+    }else{
+      return a[orderBy] < b[orderBy] ? 1 : -1
     }
 
   });
@@ -83,7 +150,7 @@ export const getUsersPagination = (req, res) => {
   const start = (page - 1) * limit;
   const end = start + limit;
 
-  const data = filtered.slice(start, end);
+  const data = filtered.slice(start,end);
 
   res.json({
     success: true,
