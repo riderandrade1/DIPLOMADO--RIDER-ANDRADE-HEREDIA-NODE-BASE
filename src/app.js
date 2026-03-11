@@ -18,7 +18,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 // Ruta principal (para que no salga solo loading)
 app.get("/", (req, res) => {
   res.send(`
-    <h1>🚀 Users API - Diplomado Backend</h1>
+    <h1>🚀 API Users Diplomado Backend</h1>
     <p>Bienvenido a la API de usuarios</p>
 
     <h3>Endpoints disponibles:</h3>
