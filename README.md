@@ -58,8 +58,8 @@ Servidor:
 
 La documentación de la API está disponible en:
 
-  [  http://localhost:3000/api-docs
-](https://diplomado-rider-andrade-heredia-node-base.onrender.com)
+
+https://diplomado-rider-andrade-heredia-node-base.onrender.com
 Usa Swagger para probar los endpoints directamente desde el navegador.
 
 ## Ejemplo de respuesta paginada
