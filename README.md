@@ -16,7 +16,8 @@ RIDER ANDRADE HEREDIA
 Clonar el repositorio:
 
     git clone [https://github.com/usuario/proyecto.git
-](https://github.com/riderandrade1/DIPLOMADO--RIDER-ANDRADE-HEREDIA-NODE-BASE.git)
+(https://github.com/riderandrade1/DIPLOMADO--RIDER-ANDRADE-HEREDIA-NODE-BASE.git)
+
 Entrar al proyecto:
 
     cd proyecto
