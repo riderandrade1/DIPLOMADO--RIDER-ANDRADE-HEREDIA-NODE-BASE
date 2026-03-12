@@ -15,8 +15,8 @@ RIDER ANDRADE HEREDIA
 
 Clonar el repositorio:
 
-    git clone https://github.com/usuario/proyecto.git
-
+    git clone [https://github.com/usuario/proyecto.git
+](https://github.com/riderandrade1/DIPLOMADO--RIDER-ANDRADE-HEREDIA-NODE-BASE.git)
 Entrar al proyecto:
 
     cd proyecto
@@ -58,8 +58,8 @@ Servidor:
 
 La documentación de la API está disponible en:
 
-    http://localhost:3000/api-docs
-
+  [  http://localhost:3000/api-docs
+](https://diplomado-rider-andrade-heredia-node-base.onrender.com)
 Usa Swagger para probar los endpoints directamente desde el navegador.
 
 ## Ejemplo de respuesta paginada
